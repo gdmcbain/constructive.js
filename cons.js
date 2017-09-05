@@ -1,5 +1,7 @@
-emptyList = {car: undefined,
-	     cdr: null};
+"use strict";
+
+const emptyList = {car: undefined,
+		   cdr: null};
 
 function cons(item, list) {
     return {car: item,
@@ -17,5 +19,5 @@ function toArray(list, array) {
 
 console.log(toArray(emptyList));
 console.log(emptyList.cdr);
-myList = cons(2, cons(1, emptyList));
+const myList = cons(2, cons(1, emptyList));
 console.log(toArray(myList));
