@@ -2,7 +2,7 @@
 
 "use strict";
 
-const zero = {pred: undefined};
+const zero = {};
 
 const isZero = n => n.pred == undefined;
 
