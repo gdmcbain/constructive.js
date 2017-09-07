@@ -4,11 +4,11 @@
 
 const zero = {};
 
+const succ = n => ({pred: n});
+
 const isZero = n => n.pred == undefined;
 
 const toNumber = n => isZero(n) ? 0 : 1 + toNumber(n.pred);
-
-const succ = n => ({pred: n});
 
 const add = n => m => isZero(m) ? n : add(succ(n)) (m.pred);
 
