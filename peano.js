@@ -8,6 +8,10 @@ const zero = {};
 
 const succ = n => ({pred: n});
 
+const one = succ(zero);
+const two = succ(one);
+const three = succ(two);
+
 const pred = R.prop('pred')
 
 const isNonzero = R.has('pred');
@@ -20,9 +24,13 @@ const add = m => isZero(m) ? R.identity : R.pipe(succ, add(pred(m)));
 
 const mul = m => isZero(m) ? R.always(zero) : n => add (n) (mul(pred(m))(n));
 
+const factorial = n => isZero(n) ? one : mul (n) (factorial(pred(n)));
+      
+
 console.log(toNumber(zero));
-console.log(toNumber(succ(zero)));
-console.log(toNumber(add(zero)(succ(zero))));
-console.log(toNumber(add(succ(zero))(zero)));
-console.log(toNumber(mul(zero)(succ(zero))));
-console.log(toNumber(mul(succ(zero))(zero)));
+console.log(toNumber(one));
+console.log(toNumber(add(zero)(one)));
+console.log(toNumber(add(one)(zero)));
+console.log(toNumber(mul(zero)(one)));
+console.log(toNumber(mul(one)(zero)));
+console.log(toNumber(factorial(three)));
