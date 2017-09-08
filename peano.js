@@ -1,4 +1,4 @@
-// Copyright (C) 2017 G. D. McBain
+  // Copyright (C) 2017 G. D. McBain
 
 "use strict";
 
@@ -14,9 +14,7 @@ const three = succ(two);
 
 const pred = R.prop('pred')
 
-const isNonzero = R.has('pred');
-
-const isZero = R.complement(isNonzero);
+const isZero = n => n === zero;
 
 const toNumber = n => isZero(n) ? 0 : R.pipe(pred, toNumber, R.inc)(n);
 
@@ -37,4 +35,3 @@ console.log(toNumber(mul(zero)(one)));
 console.log(toNumber(mul(one)(zero)));
 console.log(toNumber(factorial(three)));
 console.log(toNumber(mul(fromNumber(3))(fromNumber(5))));
-
